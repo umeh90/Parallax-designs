@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Parallax Scroll</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background: #121212;
+			height: 200vh;
+		}
+		.navbar{
+			display: flex;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			justify-content: flex-end;
+			z-index: 1000;
+		}
+		.navbar ul{
+			list-style-type: none;
+			display: flex;
+			gap: 2rem;
+		}
+		.navbar ul li a{
+			text-decoration: none;
+			color: #f7f7f7;
+			font-size:1.5rem;
+			text-transform: capitalize;
+		}
+		section{
+			position: relative;
+			height: 100vh;
+			width: 100%;
+			background: url(images/mount1.jpg)no-repeat top / 100% 100%;
+			display: flex;
+			margin-top: 30px;
+		}
+		section:after{
+			position: absolute;
+			height: 200px;
+			bottom: -100px;
+			content: "";
+			width: 100%;
+			background: linear-gradient(to bottom, transparent, #121212 50%);
+		}
+		.title{
+			font-size: 8rem;
+			margin-top: 20%;
+			color: #f7f7f7;
+			font-weight: lighter;
+			font-family: curlz, fantasy;
+			text-transform: capitalize;
+		}
+		@media screen and (max-width: 768px){
+		.title{
+			font-size: 6rem;
+			margin-top: 40%;
+		}
+		}
+		@media screen and (max-width: 492px){
+			.navbar{
+				justify-content: space-around;
+			}
+					.title{
+			font-size: 5rem;
+			margin-top: 70%;
+		}
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar">
+		<ul>
+			<li><a href="">home</a></li>
+			<li><a href="">about</a></li>
+			<li><a href="">services</a></li>
+			<li><a href="">contact</a></li>
+		</ul>
+		
+	</nav>
+
+	<section>
+		<h1 class="title">wonders <br>of nature</h1>
+	</section>
+
+ <script>
+		const back = document.querySelector("section")
+		window.addEventListener("scroll", () =>{
+			back.style.backgroundPositionY = `${scrollY / 1.5}px`
+
+		});
+	</script>
+
+</body>
+</html>
